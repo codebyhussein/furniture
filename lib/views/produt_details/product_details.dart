@@ -35,7 +35,7 @@ class ProductDetails extends StatelessWidget {
                 SizedBox(
                   height: 26.h,
                 ),
-                ImageController(
+                const ImageController(
                   image: 'assets/images/chair5.png',
                 ),
                 // Image.asset(),
@@ -150,7 +150,8 @@ class ProductDetails extends StatelessWidget {
                     SizedBox(
                       width: 15.w,
                     ),
-                    DefultWidget.defultTextCoust(text: '\$88.78'),
+                    DefultWidget.defultTextCoust(
+                        fontSize: 30.sp, text: '\$88.78'),
                   ],
                 ),
               ),

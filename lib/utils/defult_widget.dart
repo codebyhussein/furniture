@@ -9,10 +9,11 @@ class DefultWidget {
             fontSize: 20.sp, fontWeight: FontWeight.w400, color: kTextColor),
       );
 
-  static defultTextCoust({required String text}) => Text(
+  static defultTextCoust({required String text, required double fontSize}) =>
+      Text(
         text,
         style: TextStyle(
-          fontSize: 20.sp,
+          fontSize: fontSize,
           fontWeight: FontWeight.w400,
           color: kgreenColor,
         ),

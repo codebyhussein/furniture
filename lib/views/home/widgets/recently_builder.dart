@@ -43,6 +43,7 @@ class RecentlyBuilder extends StatelessWidget {
                 height: 8.h,
               ),
               DefultWidget.defultTextCoust(
+                fontSize: 20.sp,
                 text: "\$15.18",
               ),
             ],

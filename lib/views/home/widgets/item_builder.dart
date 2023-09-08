@@ -62,6 +62,7 @@ class ItemBuilder extends StatelessWidget {
               ),
             ),
             DefultWidget.defultTextCoust(
+              fontSize: 20.sp,
               text: "\$15.18",
             ),
           ],
