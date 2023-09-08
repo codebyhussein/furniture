@@ -21,6 +21,7 @@ class DiscountBoster extends StatelessWidget {
             'assets/images/chair1.png',
             height: 157.h,
             width: 177.w,
+            fit: BoxFit.cover,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
