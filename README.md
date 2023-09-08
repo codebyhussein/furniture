@@ -6,4 +6,4 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
- ![poster!]('assets/images/poster.png)
+ ![poster!](assets/images/poster.png)
