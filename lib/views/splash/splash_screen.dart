@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:furniture/utils/constants.dart';
 import 'package:furniture/views/home/home_screen.dart';
+import 'package:furniture/views/layoutScreen.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -47,7 +48,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(() => const HomeScreen());
+                    Get.to(() => const LayoutScreen());
                   },
                   child: Container(
                     height: 114.h,

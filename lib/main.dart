@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:furniture/utils/constants.dart';
+import 'package:furniture/views/splash/splash_screen.dart';
 
 import 'package:get/get.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
             textTheme: GoogleFonts.antonTextTheme(Theme.of(context).textTheme),
             primaryColor: kPrimaryColor,
           ),
-          home: const LayoutScreen(),
+          home: const SplashScreen(),
         );
       },
     );

@@ -178,15 +178,6 @@ class ProductDetails extends StatelessWidget {
                           snackPosition: SnackPosition.BOTTOM,
                           duration: const Duration(seconds: 2));
                       Get.to(() => const HomeScreen());
-                      // Get.showSnackbar(const GetSnackBar(
-                      //   snackPosition: SnackPosition.BOTTOM,
-                      //   messageText: Text(
-                      //     'Watting ....................',
-                      //     style: TextStyle(
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ));
                     },
                     child: const Text(
                       'Buy Now',
