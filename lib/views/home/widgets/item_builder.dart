@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/controller/home_controller.dart';
+import 'package:furniture/model/product.dart';
 import 'package:furniture/utils/defult_widget.dart';
 import 'package:get/get.dart';
 
 class ItemBuilder extends StatelessWidget {
-  const ItemBuilder({super.key});
-
+  ItemBuilder({super.key, required this.product, required this.index});
+  final Product product;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     final Controller = Get.put(HomeController());
@@ -51,9 +53,20 @@ class ItemBuilder extends StatelessWidget {
                 },
               ),
             ),
-            Center(child: Image.asset('assets/images/chair2.png')),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Center(
+                  child: Image.asset(
+                product.image!,
+                height: 209.h,
+                width: 194.w,
+              )),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
             Text(
-              "Leatherette Sofa",
+              product.title!,
               style: TextStyle(
                 fontFamily: "Everett",
                 fontSize: 22.sp,
@@ -63,7 +76,7 @@ class ItemBuilder extends StatelessWidget {
             ),
             DefultWidget.defultTextCoust(
               fontSize: 20.sp,
-              text: "\$15.18",
+              text: "\$${product.price}",
             ),
           ],
         ),

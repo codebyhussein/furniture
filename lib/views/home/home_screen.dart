@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/model/product.dart';
 import 'package:furniture/utils/constants.dart';
 import 'package:furniture/utils/defult_widget.dart';
 import 'package:furniture/views/home/widgets/Discount_poster.dart';
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+          padding: const EdgeInsets.only(left: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,16 +50,22 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                           onTap: () {
-                            Get.to(() => const ProductDetails());
+                            Get.to(() => ProductDetails(
+                                  product: newProducts[index],
+                                  index: index,
+                                ));
                           },
-                          child: const ItemBuilder());
+                          child: ItemBuilder(
+                            index: index,
+                            product: newProducts[index],
+                          ));
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         width: 20.w,
                       );
                     },
-                    itemCount: 5),
+                    itemCount: newProducts.length),
               ),
               SizedBox(
                 height: 27.h,
@@ -77,16 +84,22 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                           onTap: () {
-                            Get.to(() => const ProductDetails());
+                            Get.to(() => ProductDetails(
+                                  product: recentlyProducts[index],
+                                  index: index,
+                                ));
                           },
-                          child: const RecentlyBuilder());
+                          child: RecentlyBuilder(
+                            product: recentlyProducts[index],
+                            index: index,
+                          ));
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         height: 20.h,
                       );
                     },
-                    itemCount: 5),
+                    itemCount: recentlyProducts.length),
               ),
             ],
           ),

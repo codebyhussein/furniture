@@ -22,6 +22,7 @@ class DefultWidget {
   static defultTextdescription({required String text}) {
     return Text(
       text,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontFamily: "Everett",
         fontSize: 16.sp,

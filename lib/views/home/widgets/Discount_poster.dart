@@ -39,7 +39,7 @@ class DiscountBoster extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SvgPicture.asset('assets/images/dd.svg'),
+                  SvgPicture.asset('assets/images/poster.svg'),
                   SizedBox(
                     width: 10.w,
                   ),

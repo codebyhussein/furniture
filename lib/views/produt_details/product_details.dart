@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:furniture/model/product.dart';
 import 'package:furniture/utils/constants.dart';
 import 'package:furniture/utils/defult_widget.dart';
 import 'package:furniture/views/home/home_screen.dart';
@@ -11,8 +12,9 @@ import 'package:furniture/views/produt_details/widgets/text_routation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
-
+  ProductDetails({super.key, required this.product, required this.index});
+  final Product product;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,21 +33,27 @@ class ProductDetails extends StatelessWidget {
                 SizedBox(
                   height: 27.h,
                 ),
-                DefultWidget.defultText(text: 'Royal Palm Sofa'),
+                DefultWidget.defultText(text: product.title!),
                 SizedBox(
                   height: 26.h,
                 ),
-                const ImageController(
-                  image: 'assets/images/chair5.png',
+                ImageController(
+                  image: product.image!,
                 ),
                 // Image.asset(),
                 const TextRoutation(),
                 SizedBox(
                   height: 48.h,
                 ),
-                Text(
-                  'Royal Palm Sofa, Vissle dark Blue\nKabusa dark Navy',
-                  style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
+                SizedBox(
+                  height: 69.h,
+                  width: 348.w,
+                  child: Text(
+                    product.description!,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
@@ -58,13 +66,15 @@ class ProductDetails extends StatelessWidget {
                         Icons.star,
                         color: Colors.black,
                       ),
-                      DefultWidget.defultTextdescription(text: '4.5'),
+                      DefultWidget.defultTextdescription(
+                          text: product.starNumber!.toString()),
                       const VerticalDivider(
                         thickness: 2,
                         width: 20,
                         color: Color(0xffCEBB9E),
                       ),
-                      DefultWidget.defultTextdescription(text: '355 Reviews'),
+                      DefultWidget.defultTextdescription(
+                          text: '${product.reviewCount} Reviews'),
                     ],
                   ),
                 ),
@@ -78,14 +88,14 @@ class ProductDetails extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               Container(
-                height: 205.h,
+                height: 180.h,
                 width: double.infinity,
                 color: kBackgroundColor,
               ),
               Positioned(
-                bottom: 57,
+                bottom: 50,
                 child: Container(
-                  height: 153.h,
+                  height: 150.h,
                   width: 374.w,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
@@ -113,28 +123,23 @@ class ProductDetails extends StatelessWidget {
                           style: GoogleFonts.montserrat(
                               fontWeight: FontWeight.bold),
                         ),
-                        DefultWidget.defultTextdescription(
-                            text:
-                                'Get additional 15% instant discount\nupto \$10 maximum on selected products'),
+                        SizedBox(
+                          height: 28.h,
+                          width: 328.w,
+                          child: DefultWidget.defultTextdescription(
+                              text: product.discount!),
+                        )
                       ],
                     ),
                   ),
                 ),
               ),
-              Container(
-                height: 98.sp,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(18),
-                        topRight: Radius.circular(18))),
-                child: SvgPicture.asset(
-                  'assets/images/backgroung.svg',
-                  fit: BoxFit.cover,
-                ),
+              SvgPicture.asset(
+                'assets/images/backgroung.svg',
+                fit: BoxFit.cover,
               ),
               Positioned(
-                bottom: 35,
+                bottom: 30,
                 left: 45,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +156,7 @@ class ProductDetails extends StatelessWidget {
                       width: 15.w,
                     ),
                     DefultWidget.defultTextCoust(
-                        fontSize: 30.sp, text: '\$88.78'),
+                        fontSize: 30.sp, text: '\$${product.price}'),
                   ],
                 ),
               ),

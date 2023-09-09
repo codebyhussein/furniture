@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/utils/constants.dart';
-
-import 'package:furniture/views/produt_details/product_details.dart';
 import 'package:furniture/views/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
