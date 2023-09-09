@@ -9,6 +9,7 @@ import 'package:furniture/views/produt_details/widgets/imageController.dart';
 
 import 'package:furniture/views/produt_details/widgets/custom_appbar.dart';
 import 'package:furniture/views/produt_details/widgets/text_routation.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -163,28 +164,36 @@ class ProductDetails extends StatelessWidget {
               Positioned(
                 bottom: 27,
                 right: 27,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const HomeScreen();
-                      },
-                    ));
-                  },
-                  child: Container(
-                    height: 114.h,
-                    width: 114.w,
-                    decoration: const BoxDecoration(
-                        color: Colors.black,
-                        boxShadow: [kDefaultShadow],
-                        shape: BoxShape.circle),
-                    child: const Center(
-                        child: Text(
+                child: Container(
+                  height: 114.h,
+                  width: 114.w,
+                  decoration: const BoxDecoration(
+                      color: Colors.black,
+                      boxShadow: [kDefaultShadow],
+                      shape: BoxShape.circle),
+                  child: Center(
+                      child: GestureDetector(
+                    onTap: () {
+                      Get.snackbar('', 'Watting ....................',
+                          snackPosition: SnackPosition.BOTTOM,
+                          duration: const Duration(seconds: 2));
+                      Get.to(() => const HomeScreen());
+                      // Get.showSnackbar(const GetSnackBar(
+                      //   snackPosition: SnackPosition.BOTTOM,
+                      //   messageText: Text(
+                      //     'Watting ....................',
+                      //     style: TextStyle(
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ));
+                    },
+                    child: const Text(
                       'Buy Now',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w200),
-                    )),
-                  ),
+                    ),
+                  )),
                 ),
               )
             ],

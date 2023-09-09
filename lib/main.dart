@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:furniture/utils/constants.dart';
-import 'package:furniture/views/splash/splash_screen.dart';
+
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import 'views/layoutScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
             textTheme: GoogleFonts.antonTextTheme(Theme.of(context).textTheme),
             primaryColor: kPrimaryColor,
           ),
-          home: const SplashScreen(),
+          home: const LayoutScreen(),
         );
       },
     );

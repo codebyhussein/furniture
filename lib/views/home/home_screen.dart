@@ -74,10 +74,7 @@ class HomeScreen extends StatelessWidget {
                 text: "Recently Viewed",
               ),
               SizedBox(
-                height: 27.h,
-              ),
-              SizedBox(
-                height: 353.h,
+                height: 400.h,
                 width: double.infinity,
                 child: ListView.separated(
                     scrollDirection: Axis.vertical,
@@ -108,3 +105,42 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+/*
+bottomNavigationBar: Container(
+        color: Colors.transparent,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: kDefaultPadding * 2, vertical: kDefaultPadding / 2),
+          child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  // color: Color.fromARGB(176, 235, 231, 231),
+                  color: const Color(0xff1C1C25)),
+              height: 80.h, // Adjust the height as needed
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // Handle home button click
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // Handle search button click
+                    },
+                  ),
+                ],
+              )),
+        ),
+      ),
+*/

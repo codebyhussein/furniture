@@ -34,7 +34,7 @@ List<Product> newProducts = [
       discount:
           'Get additional 60% instant discount upto \$28 maximum on selected products',
       title: "Dinning sofa",
-      image: "assets/images/newItem2.png",
+      image: "assets/images/recentlyItem4.png",
       description:
           "Unlike traditional dining chairs, a dining sofa typically features a long, cushioned seat with a backrest, akin to a small sofa or bench. Here is a description of a dining sofa:"),
   Product(
