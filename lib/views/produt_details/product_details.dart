@@ -38,8 +38,12 @@ class ProductDetails extends StatelessWidget {
                 SizedBox(
                   height: 26.h,
                 ),
-                ImageController(
-                  image: product.image!,
+                SizedBox(
+                  width: double.infinity,
+                  height: 345.h,
+                  child: ImageController(
+                    image: product.image!,
+                  ),
                 ),
                 // Image.asset(),
                 const TextRoutation(),

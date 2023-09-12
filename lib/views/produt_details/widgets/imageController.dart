@@ -1,7 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:furniture/utils/constants.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ImageController extends StatefulWidget {
   final String image;
@@ -13,34 +13,45 @@ class ImageController extends StatefulWidget {
 }
 
 class _ImageControllerState extends State<ImageController> {
-  double rotationAngle = 0.0;
-  double scale = 1.0;
-  Offset _offest = Offset.zero;
+  PhotoViewController? controller;
+  late double scaleCopy;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = PhotoViewController()..outputStateStream.listen(listener);
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
+  void listener(PhotoViewControllerValue value) {
+    setState(() {
+      scaleCopy = value.scale!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GestureDetector(
-        onPanUpdate: (details) {
-          setState(() {
-            _offest += details.delta;
-          });
-        },
-        child: Transform(
-          alignment: Alignment.center,
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, 0.001)
-            ..rotateX(_offest.dy * pi / 180)
-            ..rotateY(_offest.dx * pi / 180),
-          child: Transform.rotate(
-            angle: rotationAngle,
-            child: Image.asset(
-              widget.image,
-              width: 360.w,
-              height: 345.h,
-            ),
-          ),
-        ),
+      child: Stack(
+        children: <Widget>[
+          Positioned.fill(
+              child: PhotoView(
+            filterQuality: FilterQuality.high,
+            tightMode: true,
+            gestureDetectorBehavior: HitTestBehavior.opaque,
+            enableRotation: true,
+            enablePanAlways: true,
+            backgroundDecoration: const BoxDecoration(color: kBackgroundColor),
+            imageProvider: AssetImage(widget.image),
+            controller: controller,
+          )),
+          // Text("Scale applied: $scaleCopy")
+        ],
       ),
     );
   }
